@@ -5,13 +5,11 @@
 
 # html-validate-webpack-plugin
 
-> An [html-validate.org](https://html-validate.org/) webpack plugin
+> An [html-validate.org](https://html-validate.org/) plugin for webpack
 
 ## About plugin
 
-This plugin is a simple wrapper around the [html-validate.org](https://html-validate.org/) cli.
-
-Validate your html automatically after each webpack compilation; similarly to how you would use eslint and stylelint.
+This plugin is a simple wrapper around the [html-validate.org](https://html-validate.org/) cli for automatic validation after each webpack compilation.
 
 ## Install
 
@@ -19,13 +17,11 @@ Validate your html automatically after each webpack compilation; similarly to ho
 npm install html-validate-webpack-plugin --save-dev
 ```
 
-**Note**: Install `html-validate` if you haven't already.
+**Note**: Install `html-validate` and create a `.htmlvalidate.json` at the project root with your [configurations](https://html-validate.org/usage/index.html).
 
 ```bash
 npm install html-validate --save-dev
 ```
-
-**Note**: Create a `.htmlvalidate.json` file with your configurations. [See this page for instructions](https://html-validate.org/usage/index.html).
 
 ## Usage
 
@@ -36,19 +32,23 @@ const HtmlValidatePlugin = require('html-validate-webpack-plugin');
 
 module.exports = {
   // ...
-  plugins: [new HtmlValidatePlugin()],
+  plugins: [
+    // ...
+    new HtmlValidatePlugin(),
+    // ...
+  ],
   // ...
 };
 ```
 
 ## Options
 
-You can pass [html-validate.org](https://html-validate.org/) cli options.
+You can pass select [html-validate.org](https://html-validate.org/) cli options.
 
 ### `path`
 
 - Type: `String`
-- Default: `src/**/*`
+- Default: `'src/**/*'`
 
 Specifies the directories/files for html-validate to search.
 
@@ -62,7 +62,7 @@ Specifies the file extensions to use when searching for files in directories.
 ### `config`
 
 - Type: `String`
-- Default: `.htmlvalidate.json`
+- Default: `'.htmlvalidate.json'`
 
 Specify a different configuration file.
 
@@ -75,7 +75,12 @@ Specify a different configuration file.
 
 Specify the run context of html-validate.
 
-**Note:** If you installed html-validate globally, set the value to `true`.
+**Note:** If you installed `html-validate` globally, set the value to `true`.
+
+## Features
+
+- `html-validate` [performs all validation locally](https://html-validate.org/#offline) which means you can use `html-validate` and `html-validate-webpack-plugin` offline.
+- `html-validate-webpack-plugin` has no dependencies.
 
 ## Contributing
 
