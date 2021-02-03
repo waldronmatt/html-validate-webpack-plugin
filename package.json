@@ -1,0 +1,29 @@
+{
+  "name": "html-validate-webpack-plugin",
+  "version": "1.0.0",
+  "description": "An html-validate.org webpack plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waldronmatt/html-validate-webpack-plugin.git"
+  },
+  "keywords": [
+    "html-validate",
+    "webpack",
+    "plugin",
+    "validate",
+    "html"
+  ],
+  "author": "Matthew Waldron",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waldronmatt/html-validate-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/waldronmatt/html-validate-webpack-plugin#readme",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}
