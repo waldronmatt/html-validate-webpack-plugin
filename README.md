@@ -25,20 +25,14 @@ npm install html-validate-webpack-plugin --save-dev
 npm install html-validate --save-dev
 ```
 
-Or globally:
-
-```bash
-npm install html-validate -g
-```
-
-**Note**: Make sure you have created a `.htmlvalidate.json` file with your configurations. [See this page for instructions](https://html-validate.org/usage/index.html).
+**Note**: Create a `.htmlvalidate.json` file with your configurations. [See this page for instructions](https://html-validate.org/usage/index.html).
 
 ## Usage
 
 In your webpack configuration (development builds):
 
 ```js
-const HtmlValidatePlugin = require("html-validate-webpack-plugin");
+const HtmlValidatePlugin = require('html-validate-webpack-plugin');
 
 module.exports = {
   // ...
@@ -58,20 +52,12 @@ You can pass [html-validate.org](https://html-validate.org/) cli options.
 
 Specifies the directories/files for html-validate to search.
 
-Examples:
-
-- A single file: `src/**/index`
-
 ### `extensions`
 
 - Type: `array`
 - Default: `['html']`
 
 Specifies the file extensions to use when searching for files in directories.
-
-Examples:
-
-- Multiple extensions: `['html', 'ejs']`
 
 ### `config`
 
@@ -80,16 +66,16 @@ Examples:
 
 Specify a different configuration file.
 
-Examples:
-
-- Your custom configuration: `'myconfig'` (omit the `.json` extension)
+**Note:** For your custom configuration omit the `.json` extension and supply the name only.
 
 ### `global`
 
 - Type: `boolean`
 - Default: `false`
 
-Specify the run context of html-validate. If you installed html-validate globally, set the value to `true`.
+Specify the run context of html-validate.
+
+**Note:** If you installed html-validate globally, set the value to `true`.
 
 ## Contributing
 
