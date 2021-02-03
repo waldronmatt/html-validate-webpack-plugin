@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "array"
+    },
+    "config": {
+      "type": "string"
+    },
+    "global": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

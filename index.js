@@ -1,7 +1,12 @@
 const spawn = require('child_process').spawn;
+const validateOptions = require('schema-utils');
+const schema = require('./schema.json');
 
 class HTMLValidatePlugin {
   constructor(options = {}) {
+    // validate the options being passed through the plugin options
+    validateOptions(schema, options, 'HTMLValidatePlugin');
+
     Object.assign(
       this,
       {
@@ -41,9 +46,11 @@ class HTMLValidatePlugin {
 
   runCliBasedOnScope(userParams, spawnParams) {
     /*
-      arguments are in an array and shell option is "false" by default; this is better for security
-      https://stackoverflow.com/a/50424976d
-      https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
+      Attempts at better security:
+      - schema utils used to validate user input
+      - spawn command (by default) is not exec under a shell env
+        https://gist.github.com/evilpacket/5a9655c752982faf7c4ec6450c1cbf1b
+        https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
     */
     return this.global
       ? spawn('html-validate', [`${userParams}`], spawnParams)

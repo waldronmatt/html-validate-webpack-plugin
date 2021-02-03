@@ -25,5 +25,8 @@
   "homepage": "https://github.com/waldronmatt/html-validate-webpack-plugin#readme",
   "devDependencies": {
     "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "schema-utils": "^1.0.0"
   }
 }
