@@ -7,16 +7,17 @@ class HTMLValidatePlugin {
       {
         // default values
         path: 'src/**/*',
-        extensions: 'html',
-        config: '.htmlvalidate',
+        extensions: ['html'],
+        config: false,
         global: false,
       },
-      // destructure params
       ({
+        // destructure params
         path: this.path,
         extensions: this.extensions,
         config: this.config,
         global: this.global,
+        // user provided params override defaults
       } = options)
     );
   }
@@ -44,12 +45,10 @@ class HTMLValidatePlugin {
   apply(compiler) {
     // initiate script when webpack compilation is completed
     compiler.hooks.done.tap('HTMLValidatePlugin', () => {
-      const path = `${this.path || 'src/**/*'}`;
-      const extension = `${this.convertExtensionArrayToRegex()}`;
-      const config = `${'--config ' + this.config + '.json'}`;
-
       // set up cli payload
-      const userParams = `${path}.${extension} ${config}`;
+      const userParams = `${this.path}.${this.convertExtensionArrayToRegex()} ${
+        this.config ? '--config ' + this.config + '.json' : this.config
+      }`;
       const spawnParams = {
         shell: true,
         /*inherit color output */ stdio: 'inherit',
