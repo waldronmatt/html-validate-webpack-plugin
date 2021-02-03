@@ -80,7 +80,7 @@ Specify the run context of html-validate.
 ## Features
 
 - `html-validate` [performs all validation locally](https://html-validate.org/#offline) which means you can use `html-validate` and `html-validate-webpack-plugin` offline.
-- `html-validate-webpack-plugin` has no dependencies.
+- `html-validate-webpack-plugin` contains minimal dependencies.
 
 ## Contributing
 
