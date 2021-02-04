@@ -43,7 +43,7 @@ module.exports = {
 
 ## Options
 
-You can pass select [html-validate.org](https://html-validate.org/) cli options.
+You can pass select [html-validate.org cli options](https://html-validate.org/usage/cli.html).
 
 ### `path`
 

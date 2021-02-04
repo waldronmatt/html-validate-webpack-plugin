@@ -4,7 +4,7 @@ const schema = require('./schema.json');
 
 class HTMLValidatePlugin {
   constructor(options = {}) {
-    // validate the options being passed through the plugin options
+    // validate options being passed through the plugin
     validateOptions(schema, options, 'HTMLValidatePlugin');
 
     Object.assign(
@@ -62,10 +62,7 @@ class HTMLValidatePlugin {
     compiler.hooks.done.tap('HTMLValidatePlugin', () => {
       // set up cli payload
       const userParams = `${this.path}.${this.getExtensions()} ${this.getConfig()}`;
-      const spawnParams = {
-        shell: true,
-        /*inherit color output */ stdio: 'inherit',
-      };
+      const spawnParams = { shell: true, stdio: 'inherit' };
 
       this.runCliBasedOnScope(userParams, spawnParams);
     });

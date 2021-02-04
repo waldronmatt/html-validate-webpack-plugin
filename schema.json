@@ -2,15 +2,19 @@
   "type": "object",
   "properties": {
     "path": {
+      "description": "Specifies the directories/files for html-validate to search.",
       "type": "string"
     },
     "extensions": {
+      "description": "Specifies the file extensions to use when searching for files in directories.",
       "type": "array"
     },
     "config": {
+      "description": "Specify a different configuration file.",
       "type": "string"
     },
     "global": {
+      "description": "Specify the run context of html-validate.",
       "type": "boolean"
     }
   },
