@@ -14,14 +14,14 @@ This plugin is a simple wrapper around the [html-validate.org](https://html-vali
 ## Install
 
 ```bash
-npm install html-validate-webpack-plugin --save-dev
+npm i -D html-validate-webpack-plugin
 ```
-
-**Note**: Install `html-validate` and create a `.htmlvalidate.json` at the project root with your [configurations](https://html-validate.org/usage/index.html).
 
 ```bash
-npm install html-validate --save-dev
+npm i -g html-validate
 ```
+
+**Note**: You must have `html-validate` installed globally and create a `.htmlvalidate.json` at the project root with your [configurations](https://html-validate.org/usage/index.html).
 
 ## Usage
 
@@ -31,13 +31,9 @@ In your webpack configuration (development builds):
 const HtmlValidatePlugin = require('html-validate-webpack-plugin');
 
 module.exports = {
-  // ...
   plugins: [
-    // ...
     new HtmlValidatePlugin(),
-    // ...
   ],
-  // ...
 };
 ```
 
@@ -68,23 +64,10 @@ Specify a different configuration file.
 
 **Note:** For your custom configuration omit the `.json` extension and supply the name only.
 
-### `global`
-
-- Type: `boolean`
-- Default: `false`
-
-Specify the run context of html-validate.
-
-**Note:** If you installed `html-validate` globally, set the value to `true`.
-
 ## Features
 
 - `html-validate` [performs all validation locally](https://html-validate.org/#offline) which means you can use `html-validate` and `html-validate-webpack-plugin` offline.
 - `html-validate-webpack-plugin` contains minimal dependencies.
-
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 

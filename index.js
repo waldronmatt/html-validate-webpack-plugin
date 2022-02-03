@@ -14,14 +14,12 @@ class HTMLValidatePlugin {
         path: 'src/**/*',
         extensions: 'html',
         config: '.htmlvalidate',
-        global: false,
       },
       ({
         // destructure params
         path: this.path,
         extensions: this.extensions,
         config: this.config,
-        global: this.global,
         // user provided params override defaults
       } = options)
     );
@@ -44,7 +42,7 @@ class HTMLValidatePlugin {
       : processedExtension.replace(/\{/g, '').replace(/\}/g, '');
   }
 
-  runCliBasedOnScope(userParams, spawnParams) {
+  runCli(userParams, spawnParams) {
     /*
       Attempts at better security:
       - schema utils used to validate user input
@@ -52,9 +50,7 @@ class HTMLValidatePlugin {
         https://gist.github.com/evilpacket/5a9655c752982faf7c4ec6450c1cbf1b
         https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options
     */
-    return this.global
-      ? spawn('html-validate', [`${userParams}`], spawnParams)
-      : spawn('node', ['node_modules/.bin/html-validate', `${userParams}`], spawnParams);
+    return spawn('html-validate', [`${userParams}`], spawnParams);
   }
 
   apply(compiler) {
@@ -64,7 +60,7 @@ class HTMLValidatePlugin {
       const userParams = `${this.path}.${this.getExtensions()} ${this.getConfig()}`;
       const spawnParams = { shell: true, stdio: 'inherit' };
 
-      this.runCliBasedOnScope(userParams, spawnParams);
+      this.runCli(userParams, spawnParams);
     });
   }
 }

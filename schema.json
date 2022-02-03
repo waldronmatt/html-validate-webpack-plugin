@@ -12,10 +12,6 @@
     "config": {
       "description": "Specify a different configuration file.",
       "type": "string"
-    },
-    "global": {
-      "description": "Specify the run context of html-validate.",
-      "type": "boolean"
     }
   },
   "additionalProperties": false
